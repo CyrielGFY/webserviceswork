@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Mon application en AJAX</title>
+        <link rel="stylesheet" href="css/main.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    </head>
+    <br>
+        <h1 id="titre" class="h1">Météo de </h1>
+    </br>
+    </br>
+    <input placeholder="entrez un code postal" id="ville"/>
+    </br>
+    </br>
+    <button onclick="test()">OK</button>
+    </br></br>
+        <div id="api-response"></div>
+        <span class="" id="temp"></span>°C<br>
+        <span class="" id="pressure"></span>hPa <br>
+        <span class="" id="humidity"></span>%<br>
+
+
+        <script>
+            function test(){
+                ville = $('#ville').val();
+                $.get('http://api.openweathermap.org/data/2.5/weather?zip=' + ville + ',fr&appid=8600d7d564076529872375d01d7d93a2', function (data) {
+                    console.log(data);
+                    var temperature = data.main.temp;
+                    temperature = temperature - 273.15;
+                    $('#temp').text(temperature.toFixed(2));
+                    $('#pressure').text(data.main.pressure);
+                    $('#humidity').text(data.main.humidity);
+                    $('#titre').text('Météo pour la ville de ' + data.name);
+                })}
+        </script>
+    </body>
+</html>
