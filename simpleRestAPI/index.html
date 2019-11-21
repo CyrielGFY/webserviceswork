@@ -1,0 +1,25 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+<!--
+ input field used to specify user name
+ button used to send the field value to the server
+ -->
+<input id="field" type="text" placeholder="Qui etes vous ?">
+<button id="button" onclick="send()">Se présenter</button>
+
+<!--
+ script imports:
+ - Axios for the AJAX requests
+ - main.js for the 'business' part
+ -->
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="main.js"></script>
+
+</body>
+</html>
